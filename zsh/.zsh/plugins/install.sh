@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/.zsh/plugins
-
 if [ ! -d ~/.zsh/plugins/zsh-autosuggestions ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
 fi
