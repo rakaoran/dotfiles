@@ -10,4 +10,5 @@ cd dotfiles
 stow nvim
 stow starship
 stow kitty
+stow zsh
 ```
