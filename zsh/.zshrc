@@ -1,4 +1,6 @@
 eval "$(starship init zsh)"
+source ~/.antidote/antidote.zsh
+antidote load
 
 typeset -U path PATH
 
@@ -9,8 +11,6 @@ path=(
   $HOME/.local/share/bob/nvim-bin
   $path
 )
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH
 
 alias vim='nvim'
