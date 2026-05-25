@@ -1,5 +1,23 @@
 return {
 	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+		},
+		opts = {
+			ensure_installed = {
+				"stylua",
+				"black",
+				"prettier",
+				"clang-format",
+				"goimports",
+			},
+			auto_update = false,
+			run_on_start = true,
+			start_delay = 3000,
+		},
+	},
+	{
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },

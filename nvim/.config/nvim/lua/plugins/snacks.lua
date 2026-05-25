@@ -175,6 +175,15 @@ return {
 				},
 				explorer = {
 					layout = { preset = "sidebar", hidden = { "input" } },
+					actions = {
+						toggle_all_hidden = function(picker)
+							local show = not (picker.opts.hidden and picker.opts.ignored)
+							picker.opts.hidden = show
+							picker.opts.ignored = show
+							picker.list:set_target()
+							picker:find()
+						end,
+					},
 					win = {
 						list = {
 							keys = {
@@ -191,6 +200,7 @@ return {
 								[","] = "explorer_up",
 								["t"] = "confirm",
 								["h"] = "toggle_hidden",
+								["H"] = "toggle_all_hidden",
 								["i"] = "toggle_ignored",
 								["z"] = "explorer_close_all",
 								["r"] = "explorer_update",

@@ -19,17 +19,17 @@ return {
 			lsp_format = "fallback", -- use LSP formatting if no dedicated formatter
 		},
 		formatters_by_ft = {
-			lua = { "stylua" }, -- cargo install stylua
-			python = { "black" }, -- pip install black
-			javascript = { "prettier" }, -- pnpm i -g prettier
+			lua = { "stylua" },
+			python = { "black" },
+			javascript = { "prettier" },
 			typescript = { "prettier" },
 			javascriptreact = { "prettier" },
 			typescriptreact = { "prettier" },
-			c = { "clang-format" }, -- sudo apt install clang-format
+			c = { "clang-format" },
 			cpp = { "clang-format" },
-			go = { "goimports", "gofmt" }, -- go install golang.org/x/tools/cmd/goimports@latest  (gofmt comes with go)
-			rust = { "rustfmt" }, -- comes with rustup
-			zig = { "zigfmt" }, -- comes with zig
+			go = { "goimports", "gofmt" },
+			rust = { "rustfmt" },
+			zig = { "zigfmt" },
 			html = { "prettier" },
 			css = { "prettier" },
 			json = { "prettier" },

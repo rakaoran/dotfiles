@@ -38,7 +38,7 @@ type Meow struct {
 
 `<C-_>`: toggle comment (line or selection, \_ in terminal is same as /)
 
-`<leader>a`: select all text in buffer
+`<leader>a`: select all text in buffer without moving cursor
 
 `<leader>y`: yank buffer without moving cursor
 
@@ -85,6 +85,8 @@ type Meow struct {
 `h`: toggle hidden files
 
 `i`: toggle ignored files
+
+`H`: toggle hidden and ignored files
 
 `z`: close all directories
 

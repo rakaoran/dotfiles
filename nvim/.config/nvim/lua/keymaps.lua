@@ -8,7 +8,11 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" }
 
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" })
 
-vim.keymap.set("n", "<leader>a", "ggVG", { desc = "Select all text" })
+vim.keymap.set("n", "<leader>a", function()
+	local view = vim.fn.winsaveview()
+	vim.cmd("normal! ggVG")
+	vim.fn.winrestview(view)
+end, { desc = "Select all text (cursor stays)" })
 vim.keymap.set("n", "<leader>y", function()
 	local view = vim.fn.winsaveview()
 	vim.cmd("silent keepjumps normal! ggVGy")
