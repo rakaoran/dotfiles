@@ -9,65 +9,80 @@ return {
 		local tab_bg = "#1d2132"
 		local selected_bg = "#202638"
 		return {
-		highlights = {
-			fill = { bg = bar_bg },
-			background = { bg = tab_bg, fg = colors.comment },
-			buffer_selected = { bg = selected_bg, fg = colors.fg, bold = true },
-			buffer_visible = { bg = tab_bg, fg = colors.fg_dark },
-			separator = { bg = tab_bg, fg = bar_bg },
-			separator_selected = { bg = selected_bg, fg = bar_bg },
-			separator_visible = { bg = tab_bg, fg = bar_bg },
-			numbers = { bg = tab_bg, fg = colors.comment },
-			numbers_selected = { bg = selected_bg, fg = colors.blue, bold = true },
-			numbers_visible = { bg = tab_bg, fg = colors.fg_dark },
-			modified = { bg = tab_bg, fg = colors.orange },
-			modified_selected = { bg = selected_bg, fg = colors.orange },
-			modified_visible = { bg = tab_bg, fg = colors.orange },
-			duplicate = { bg = tab_bg, fg = colors.comment },
-			duplicate_selected = { bg = selected_bg, fg = colors.comment, italic = true },
-			duplicate_visible = { bg = tab_bg, fg = colors.comment },
-			diagnostic = { bg = tab_bg, fg = colors.comment },
-			diagnostic_selected = { bg = selected_bg, fg = colors.comment },
-			diagnostic_visible = { bg = tab_bg, fg = colors.comment },
-			hint = { bg = tab_bg, fg = colors.teal },
-			hint_selected = { bg = selected_bg, fg = colors.teal },
-			hint_visible = { bg = tab_bg, fg = colors.teal },
-			info = { bg = tab_bg, fg = colors.blue },
-			info_selected = { bg = selected_bg, fg = colors.blue },
-			info_visible = { bg = tab_bg, fg = colors.blue },
-			warning = { bg = tab_bg, fg = colors.yellow },
-			warning_selected = { bg = selected_bg, fg = colors.yellow },
-			warning_visible = { bg = tab_bg, fg = colors.yellow },
-			error = { bg = tab_bg, fg = colors.red },
-			error_selected = { bg = selected_bg, fg = colors.red },
-			error_visible = { bg = tab_bg, fg = colors.red },
-			pick = { bg = tab_bg, fg = colors.red },
-			pick_selected = { bg = selected_bg, fg = colors.red, bold = true },
-			pick_visible = { bg = tab_bg, fg = colors.red },
-			indicator_selected = { fg = colors.blue, bg = selected_bg },
-		},
-		options = {
-			numbers = "ordinal",
-			close_command = "bdelete! %d",
-			diagnostics = "nvim_lsp",
-			diagnostics_indicator = function(count, level)
-				local icon = level:match("error") and " " or " "
-				return " " .. icon .. count
-			end,
-			always_show_bufferline = true,
-			show_buffer_close_icons = false,
-			show_close_icon = false,
-			separator_style = "thin",
-			offsets = {
-				{
-					filetype = "snacks_layout_box",
-					text = "Explorer",
-					highlight = "Directory",
-					text_align = "center",
+			highlights = {
+				error_diagnostic = { bg = tab_bg, fg = colors.red },
+				error_diagnostic_selected = { bg = selected_bg, fg = colors.red },
+				error_diagnostic_visible = { bg = tab_bg, fg = colors.red },
+
+				warning_diagnostic = { bg = tab_bg, fg = colors.yellow },
+				warning_diagnostic_selected = { bg = selected_bg, fg = colors.yellow },
+				warning_diagnostic_visible = { bg = tab_bg, fg = colors.yellow },
+
+				info_diagnostic = { bg = tab_bg, fg = colors.blue },
+				info_diagnostic_selected = { bg = selected_bg, fg = colors.blue },
+				info_diagnostic_visible = { bg = tab_bg, fg = colors.blue },
+
+				hint_diagnostic = { bg = tab_bg, fg = colors.teal },
+				hint_diagnostic_selected = { bg = selected_bg, fg = colors.teal },
+				hint_diagnostic_visible = { bg = tab_bg, fg = colors.teal },
+				fill = { bg = bar_bg },
+				background = { bg = tab_bg, fg = colors.comment },
+				buffer_selected = { bg = selected_bg, fg = colors.fg, bold = true },
+				buffer_visible = { bg = tab_bg, fg = colors.fg_dark },
+				separator = { bg = tab_bg, fg = colors.comment },
+				separator_selected = { bg = selected_bg, fg = colors.comment },
+				separator_visible = { bg = tab_bg, fg = colors.comment },
+				numbers = { bg = tab_bg, fg = colors.comment },
+				numbers_selected = { bg = selected_bg, fg = colors.blue, bold = true },
+				numbers_visible = { bg = tab_bg, fg = colors.fg_dark },
+				modified = { bg = tab_bg, fg = colors.orange },
+				modified_selected = { bg = selected_bg, fg = colors.orange },
+				modified_visible = { bg = tab_bg, fg = colors.orange },
+				duplicate = { bg = tab_bg, fg = colors.comment },
+				duplicate_selected = { bg = selected_bg, fg = colors.comment, italic = true },
+				duplicate_visible = { bg = tab_bg, fg = colors.comment },
+				diagnostic = { bg = tab_bg, fg = colors.comment },
+				diagnostic_selected = { bg = selected_bg, fg = colors.comment },
+				diagnostic_visible = { bg = tab_bg, fg = colors.comment },
+				hint = { bg = tab_bg, fg = colors.teal },
+				hint_selected = { bg = selected_bg, fg = colors.teal },
+				hint_visible = { bg = tab_bg, fg = colors.teal },
+				info = { bg = tab_bg, fg = colors.blue },
+				info_selected = { bg = selected_bg, fg = colors.blue },
+				info_visible = { bg = tab_bg, fg = colors.blue },
+				warning = { bg = tab_bg, fg = colors.yellow },
+				warning_selected = { bg = selected_bg, fg = colors.yellow },
+				warning_visible = { bg = tab_bg, fg = colors.yellow },
+				error = { bg = tab_bg, fg = colors.red },
+				error_selected = { bg = selected_bg, fg = colors.red },
+				error_visible = { bg = tab_bg, fg = colors.red },
+				pick = { bg = tab_bg, fg = colors.red },
+				pick_selected = { bg = selected_bg, fg = colors.red, bold = true },
+				pick_visible = { bg = tab_bg, fg = colors.red },
+				indicator_selected = { fg = colors.green, bg = selected_bg },
+			},
+			options = {
+				numbers = "ordinal",
+				close_command = "bdelete! %d",
+				diagnostics = "nvim_lsp",
+				diagnostics_indicator = function(count, level)
+					local icon = level:match("error") and " " or " "
+					return " " .. icon .. count
+				end,
+				always_show_bufferline = true,
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+				separator_style = "thin",
+				offsets = {
+					{
+						filetype = "snacks_layout_box",
+						text = "Explorer",
+						highlight = "Directory",
+						text_align = "center",
+					},
 				},
 			},
-		},
-	}
+		}
 	end,
 	keys = {
 		{ "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Go to buffer 1" },
@@ -79,8 +94,6 @@ return {
 		{ "<leader>7", "<cmd>BufferLineGoToBuffer 7<cr>", desc = "Go to buffer 7" },
 		{ "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "Go to buffer 8" },
 		{ "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Go to buffer 9" },
-		{ "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-		{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
 		{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete buffer" },
 		{ "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close other buffers" },
 		{ "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers to the right" },
@@ -125,7 +138,8 @@ return {
 									pcall(vim.api.nvim_buf_delete, buf, {})
 								else
 									vim.notify(
-										"Deleted file still has unsaved buffer changes: " .. vim.fn.fnamemodify(buf_path, ":~:."),
+										"Deleted file still has unsaved buffer changes: "
+											.. vim.fn.fnamemodify(buf_path, ":~:."),
 										vim.log.levels.WARN
 									)
 								end
