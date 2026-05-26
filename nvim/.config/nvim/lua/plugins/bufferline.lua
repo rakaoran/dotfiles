@@ -4,10 +4,11 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false,
 	opts = function()
-		local colors = require("tokyonight.colors").setup({ style = "night" })
-		local bar_bg = "#181b29"
-		local tab_bg = "#1d2132"
-		local selected_bg = "#202638"
+		local colors = require("tokyonight.colors").setup({ style = "night", on })
+		local bar_bg = "#151821"
+		local tab_bg = "#1b2030"
+		local selected_bg = "#27324a"
+		local separator_fg = bar_bg
 		return {
 			highlights = {
 				error_diagnostic = { bg = tab_bg, fg = colors.red },
@@ -29,9 +30,9 @@ return {
 				background = { bg = tab_bg, fg = colors.comment },
 				buffer_selected = { bg = selected_bg, fg = colors.fg, bold = true },
 				buffer_visible = { bg = tab_bg, fg = colors.fg_dark },
-				separator = { bg = tab_bg, fg = colors.comment },
-				separator_selected = { bg = selected_bg, fg = colors.comment },
-				separator_visible = { bg = tab_bg, fg = colors.comment },
+				separator = { bg = tab_bg, fg = separator_fg },
+				separator_selected = { bg = selected_bg, fg = separator_fg },
+				separator_visible = { bg = tab_bg, fg = separator_fg },
 				numbers = { bg = tab_bg, fg = colors.comment },
 				numbers_selected = { bg = selected_bg, fg = colors.blue, bold = true },
 				numbers_visible = { bg = tab_bg, fg = colors.fg_dark },
@@ -59,16 +60,16 @@ return {
 				pick = { bg = tab_bg, fg = colors.red },
 				pick_selected = { bg = selected_bg, fg = colors.red, bold = true },
 				pick_visible = { bg = tab_bg, fg = colors.red },
-				indicator_selected = { fg = colors.green, bg = selected_bg },
+				indicator_selected = { fg = selected_bg, bg = selected_bg },
 			},
 			options = {
 				numbers = "ordinal",
 				close_command = "bdelete! %d",
 				diagnostics = "nvim_lsp",
-				diagnostics_indicator = function(count, level)
-					local icon = level:match("error") and " " or " "
-					return " " .. icon .. count
+				diagnostics_indicator = function(count)
+					return " " .. count
 				end,
+				indicator = { icon = "", style = "icon" },
 				always_show_bufferline = true,
 				show_buffer_close_icons = false,
 				show_close_icon = false,
