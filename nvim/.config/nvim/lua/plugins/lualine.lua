@@ -20,7 +20,7 @@ return {
 				},
 			},
 			lualine_y = { "diagnostics" },
-			lualine_z = { "filetype" },
+			lualine_z = { "filetype", "location" },
 		},
 	},
 }

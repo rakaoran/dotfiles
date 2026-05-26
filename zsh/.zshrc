@@ -8,10 +8,13 @@ path=(
   $HOME/.npm-global/bin
   $HOME/.cargo/bin
   $HOME/go/bin
+  $HOME/manbin
   $HOME/.local/share/bob/nvim-bin
   $path
 )
+
 export PATH
+export EDITOR=nvim
 
 alias vim='nvim'
 alias ls='ls --color=auto'
