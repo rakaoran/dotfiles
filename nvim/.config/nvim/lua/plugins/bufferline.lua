@@ -4,10 +4,10 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	lazy = false,
 	opts = function()
-		local colors = require("tokyonight.colors").setup({ style = "night", on })
+		local colors = require("tokyonight.colors").setup({ style = "night" })
 		local bar_bg = "#151821"
 		local tab_bg = "#1b2030"
-		local selected_bg = "#27324a"
+		local selected_bg = "#22283d"
 		local separator_fg = bar_bg
 		return {
 			highlights = {

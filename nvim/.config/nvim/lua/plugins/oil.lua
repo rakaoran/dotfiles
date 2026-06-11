@@ -35,7 +35,7 @@ return {
 			["g?"] = { "actions.show_help", mode = "n" },
 			["<CR>"] = "actions.select",
 			["<C-p>"] = "actions.preview",
-			["<C-l>"] = "actions.refresh",
+			["<C-R>"] = "actions.refresh",
 			[","] = { "actions.parent", mode = "n" },
 			["."] = { "actions.open_cwd", mode = "n" },
 			[";"] = { "actions.cd", mode = "n" },

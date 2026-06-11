@@ -1,20 +1,27 @@
 eval "$(starship init zsh)"
+
 source ~/.antidote/antidote.zsh
 antidote load
 
 typeset -U path PATH
 
-path=(
-  $HOME/.npm-global/bin
-  $HOME/.cargo/bin
-  $HOME/go/bin
-  $HOME/manbin
-  $HOME/.local/share/bob/nvim-bin
-  $path
-)
-
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
 export PATH
 export EDITOR=nvim
+
+path=(
+  $HOME/.npm-global/bin
+  $HOME/ctf/bin
+  $HOME/.cargo/bin
+  $HOME/go/bin
+  $HOME/manbin/bin
+  $HOME/.local/share/bob/nvim-bin
+  $ANDROID_HOME/cmdline-tools/latest/bin
+  $ANDROID_HOME/platform-tools
+  $ANDROID_HOME/build-tools/36.0.0
+  $path
+)
 
 alias vim='nvim'
 alias ls='ls --color=auto'

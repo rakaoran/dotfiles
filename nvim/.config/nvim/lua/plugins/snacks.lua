@@ -274,6 +274,35 @@ return {
 			end,
 			desc = "Todo/Fix/Fixme",
 		},
+		{
+			"<leader>sm",
+			function()
+				---@diagnostic disable-next-line: undefined-field
+				Snacks.picker.man({
+					transform = function(item)
+						return vim.tbl_contains({ "2", "3", "4", "5", "7" }, item.section)
+					end,
+					layout = {
+						preset = "default",
+						layout = {
+							width = 0.9,
+							height = 0.9,
+						},
+					},
+					confirm = function(picker, item)
+						picker:close()
+						if not item then
+							return
+						end
+
+						vim.schedule(function()
+							vim.cmd("tab Man " .. item.ref)
+						end)
+					end,
+				})
+			end,
+			desc = "Man Pages",
+		},
 		-- LSP
 		{
 			"gd",

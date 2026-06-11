@@ -9,9 +9,7 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" }
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" })
 
 vim.keymap.set("n", "<leader>a", function()
-	local view = vim.fn.winsaveview()
 	vim.cmd("normal! ggVG")
-	vim.fn.winrestview(view)
 end, { desc = "Select all text (cursor stays)" })
 vim.keymap.set("n", "<leader>y", function()
 	local view = vim.fn.winsaveview()
@@ -57,7 +55,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		local rename_symbol = function()
-			local clients = vim.lsp.get_clients({ bufnr = event.buf, method = vim.lsp.protocol.Methods.textDocument_rename })
+			local clients =
+				vim.lsp.get_clients({ bufnr = event.buf, method = vim.lsp.protocol.Methods.textDocument_rename })
 			if #clients == 0 then
 				vim.notify("No LSP rename provider attached", vim.log.levels.WARN)
 				return
