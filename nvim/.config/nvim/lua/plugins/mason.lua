@@ -51,6 +51,16 @@ return {
 					},
 				},
 			})
+			vim.lsp.config("clangd", {
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--all-scopes-completion",
+					"--completion-style=detailed",
+					"--header-insertion=iwyu",
+					"--function-arg-placeholders=1",
+				},
+			})
 			require("mason-lspconfig").setup(opts)
 		end,
 		opts = {

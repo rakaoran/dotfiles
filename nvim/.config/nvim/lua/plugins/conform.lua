@@ -13,9 +13,9 @@ return {
 		},
 	},
 	opts = {
-		notify_on_error = false,
+		notify_on_error = true,
 		format_on_save = {
-			timeout_ms = 500,
+			timeout_ms = 2000,
 			lsp_format = "fallback", -- use LSP formatting if no dedicated formatter
 		},
 		formatters_by_ft = {
