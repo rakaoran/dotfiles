@@ -1,0 +1,9 @@
+frame = "none"
+maximized = true
+tabs = true
+vsync = true
+mouse-cursor-icon = "i-beam"
+
+[font]
+normal = ["JetBrainsMono Nerd Font"]
+size = 18.0

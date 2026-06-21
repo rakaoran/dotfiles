@@ -37,7 +37,16 @@ vim.keymap.set("n", "Q", "<nop>", { desc = "Disable Q" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 
-local function append_semicolon()
+if vim.g.neovide then
+	vim.keymap.set("n", "<C-h>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+	vim.keymap.set("n", "<C-l>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+end
+
+local function append_semicolon_to_line()
+	if vim.snippet and vim.snippet.active and vim.snippet.active() then
+		pcall(vim.snippet.stop)
+	end
+
 	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 	local line = vim.api.nvim_get_current_line()
 	local content, trailing = line:match("^(.-)(%s*)$")
@@ -49,7 +58,28 @@ local function append_semicolon()
 	vim.api.nvim_win_set_cursor(0, { row, math.min(col, #vim.api.nvim_get_current_line()) })
 end
 
-vim.keymap.set({ "n", "i" }, "<C-;>", append_semicolon, { desc = "Append semicolon" })
+local function append_semicolon()
+	local ok, cmp = pcall(require, "blink.cmp")
+
+	if vim.fn.pumvisible() == 1 then
+		vim.api.nvim_feedkeys(vim.keycode("<C-e>"), "nx", false)
+	end
+
+	if ok then
+		if cmp.is_signature_visible and cmp.is_signature_visible() then
+			cmp.hide_signature()
+		end
+
+		if cmp.is_visible and cmp.is_visible() then
+			cmp.cancel({ callback = append_semicolon_to_line })
+			return
+		end
+	end
+
+	append_semicolon_to_line()
+end
+
+vim.keymap.set({ "n", "i", "s" }, "<C-;>", append_semicolon, { desc = "Append semicolon" })
 
 vim.keymap.set("t", "<C-n>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 

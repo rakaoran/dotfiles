@@ -1,6 +1,23 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+if vim.g.neovide then
+	vim.o.guifont = "JetBrainsMono Nerd Font:h18"
+	vim.opt.linespace = 0
+	vim.opt.cmdheight = 0
+	vim.g.neovide_theme = "dark"
+	vim.g.neovide_opacity = 0.75
+	vim.g.neovide_normal_opacity = 0.75
+	vim.g.neovide_window_blurred = true
+	vim.g.neovide_floating_blur_amount_x = 19.0
+	vim.g.neovide_floating_blur_amount_y = 19.0
+	vim.g.neovide_padding_top = 0
+	vim.g.neovide_padding_bottom = -1
+	vim.g.neovide_padding_right = 0
+	vim.g.neovide_padding_left = 0
+	vim.g.neovide_hide_mouse_when_typing = true
+end
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
 	callback = function()
