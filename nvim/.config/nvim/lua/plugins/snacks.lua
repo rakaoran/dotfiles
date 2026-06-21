@@ -98,7 +98,7 @@ return {
 					key = "p",
 					hidden = true,
 					action = function()
-						local projects_dir = vim.fn.expand("~/projects")
+						local projects_dir = vim.fn.expand("~/Projects")
 						local mru_file = vim.fn.stdpath("data") .. "/project_mru.json"
 						local f = io.open(mru_file, "r")
 						local mru = {}

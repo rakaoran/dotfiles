@@ -37,6 +37,20 @@ vim.keymap.set("n", "Q", "<nop>", { desc = "Disable Q" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 
+local function append_semicolon()
+	local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+	local line = vim.api.nvim_get_current_line()
+	local content, trailing = line:match("^(.-)(%s*)$")
+
+	if content:sub(-1) ~= ";" then
+		vim.api.nvim_set_current_line(content .. ";" .. trailing)
+	end
+
+	vim.api.nvim_win_set_cursor(0, { row, math.min(col, #vim.api.nvim_get_current_line()) })
+end
+
+vim.keymap.set({ "n", "i" }, "<C-;>", append_semicolon, { desc = "Append semicolon" })
+
 vim.keymap.set("t", "<C-n>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- TODO: move them to autocmd.lua
@@ -72,7 +86,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 
 		-- Show function signature help while typing arguments
-		map("<C-h>", vim.lsp.buf.signature_help, "Signature Help", "i")
+		map("<C-,>", vim.lsp.buf.signature_help, "Signature Help", "i")
 
 		-- Toggle inlay hints (show inferred types, parameter names inline)
 		local client = vim.lsp.get_client_by_id(event.data.client_id)

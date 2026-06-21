@@ -1,5 +1,6 @@
 ---
 BasedOnStyle: LLVM
+AllowShortFunctionsOnASingleLine: None
 IndentWidth: 4
 ContinuationIndentWidth: 4
 TabWidth: 4
