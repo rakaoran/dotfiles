@@ -74,6 +74,11 @@ return {
 				})
 				:wait(300000)
 
+			local use_treesitter_indent = {
+				c = false,
+				cpp = false,
+			}
+
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = {
 					"bash",
@@ -97,9 +102,11 @@ return {
 					"jsx",
 					"tsx",
 				},
-				callback = function()
+				callback = function(args)
 					vim.treesitter.start()
-					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					if use_treesitter_indent[vim.bo[args.buf].filetype] ~= false then
+						vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					end
 				end,
 			})
 		end,

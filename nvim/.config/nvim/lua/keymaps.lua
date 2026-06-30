@@ -6,6 +6,9 @@ vim.keymap.set("n", "<C-k>", "50kzz", { desc = "Scroll up 50 lines" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 
+vim.keymap.set("n", "<leader>t", "za", { desc = "Toggle fold" })
+vim.keymap.set("n", "<leader>T", require("folds").toggle_all_function_folds, { desc = "Toggle function folds" })
+
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { desc = "Clear search highlight" })
 
 vim.keymap.set("n", "<leader>a", function()

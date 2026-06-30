@@ -1,0 +1,10 @@
+---
+If:
+  PathMatch: .*\.h$
+CompileFlags:
+  Add: [-xc, -std=c11]
+---
+If:
+  PathMatch: .*\.c$
+CompileFlags:
+  Add: [-std=c11]

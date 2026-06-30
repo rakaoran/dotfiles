@@ -18,6 +18,10 @@
 
 `N`: previous search result (centered)
 
+`<leader>t`: toggle fold
+
+`<leader>T`: toggle function folds
+
 `]]`: next word reference (snacks.words)
 
 `[[`: previous word reference (snacks.words)

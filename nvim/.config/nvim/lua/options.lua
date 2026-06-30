@@ -1,6 +1,12 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.filetype.add({
+	extension = {
+		h = "c",
+	},
+})
+
 if vim.g.neovide then
 	vim.o.guifont = "JetBrainsMono Nerd Font:h18"
 	vim.opt.linespace = 0
@@ -28,10 +34,14 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
 	callback = function()
-		vim.opt_local.tabstop = 4
-		vim.opt_local.softtabstop = 4
-		vim.opt_local.shiftwidth = 4
-		vim.opt_local.expandtab = true
+		vim.opt_local.tabstop = 8
+		vim.opt_local.softtabstop = 8
+		vim.opt_local.shiftwidth = 8
+		vim.opt_local.expandtab = false
+		vim.opt_local.smartindent = false
+		vim.opt_local.cindent = true
+		vim.opt_local.indentexpr = ""
+		vim.opt_local.cinoptions = ":0,=s,l1,t0,g0,(0"
 	end,
 })
 
@@ -44,6 +54,12 @@ vim.opt.smartindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "split"
+
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldcolumn = "0"
+vim.opt.fillchars:append({ fold = " " })
 
 vim.opt.scrolloff = 50
 vim.opt.ruler = false
@@ -92,4 +108,3 @@ vim.diagnostic.config({
 		spacing = 2,
 	},
 })
--- TODO: add folding with tree sitter
