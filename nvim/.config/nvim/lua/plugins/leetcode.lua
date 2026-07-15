@@ -1,6 +1,6 @@
 return {
 	"kawre/leetcode.nvim",
-	build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+	build = ":TSUpdate html",
 	dependencies = {
 		"folke/snacks.nvim",
 		"nvim-lua/plenary.nvim",

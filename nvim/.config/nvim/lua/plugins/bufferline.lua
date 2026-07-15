@@ -162,7 +162,6 @@ return {
 			end,
 		})
 
-		-- LRU: auto-close least recently used buffers when exceeding 10
 		local max_buffers = 6
 		vim.api.nvim_create_autocmd("BufEnter", {
 			group = vim.api.nvim_create_augroup("bufferline-lru", { clear = true }),
@@ -176,12 +175,10 @@ return {
 						return
 					end
 
-					-- sort by lastused (oldest first)
 					table.sort(bufs, function(a, b)
 						return vim.fn.getbufinfo(a)[1].lastused < vim.fn.getbufinfo(b)[1].lastused
 					end)
 
-					-- close oldest buffers until we're at max, skip modified
 					local to_close = #bufs - max_buffers
 					for i = 1, #bufs do
 						if to_close <= 0 then

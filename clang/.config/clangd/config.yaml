@@ -1,10 +1,19 @@
 ---
 If:
-  PathMatch: .*\.h$
+  PathMatch: [.*\.c$, .*\.h$]
 CompileFlags:
-  Add: [-xc, -std=c11]
----
-If:
-  PathMatch: .*\.c$
-CompileFlags:
-  Add: [-std=c11]
+  CompilationDatabase: Ancestors
+  Compiler: clang
+  Remove: [-x, -std=c++*, -stdlib=*]
+  Add: [-xc, -std=gnu11, -D_POSIX_C_SOURCE=200809L, -D_DEFAULT_SOURCE]
+Index:
+  Background: Build
+  StandardLibrary: true
+Diagnostics:
+  MissingIncludes: Strict
+  UnusedIncludes: Strict
+Completion:
+  AllScopes: Yes
+  HeaderInsertion: IWYU
+  CodePatterns: All
+  MacroFilter: ExactPrefix

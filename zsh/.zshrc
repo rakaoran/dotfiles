@@ -1,5 +1,8 @@
 eval "$(starship init zsh)"
 
+autoload -Uz compinit
+compinit
+
 source ~/.antidote/antidote.zsh
 antidote load
 
@@ -30,4 +33,3 @@ alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 alias llah='ls -lah'
-

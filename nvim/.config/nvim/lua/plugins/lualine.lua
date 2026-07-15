@@ -12,11 +12,11 @@ return {
 				{
 					"filename",
 					symbols = {
-						modified = " ●", -- Text to show when the buffer is modified
-						alternate_file = "#", -- Text to show to identify the alternate file
-						directory = "", -- Text to show when the buffer is a directory
+						modified = " ●",
+						alternate_file = "#",
+						directory = "",
 					},
-					path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute
+					path = 1,
 				},
 			},
 			lualine_y = { "diagnostics" },

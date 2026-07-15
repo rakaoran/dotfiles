@@ -3,7 +3,6 @@ return {
 	priority = 1000,
 	lazy = false,
 	init = function()
-		-- Cool neon purple/cyan dashboard colors
 		vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#bd93f9" })
 		vim.api.nvim_set_hl(0, "SnacksDashboardTitle", { fg = "#8be9fd", bold = true })
 		vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = "#ff79c6" })
@@ -187,14 +186,13 @@ return {
 					win = {
 						list = {
 							keys = {
-								["a"] = false, -- add
-								["d"] = false, -- delete
-								["c"] = false, -- copy
-								["m"] = false, -- move
-								["o"] = false, -- open with system app
-								["p"] = false, -- paste
-								["y"] = false, -- yank
-								-- keep navigation + toggle
+								["a"] = false,
+								["d"] = false,
+								["c"] = false,
+								["m"] = false,
+								["o"] = false,
+								["p"] = false,
+								["y"] = false,
 								["<CR>"] = "confirm",
 								["."] = "explorer_focus",
 								[","] = "explorer_up",
@@ -303,7 +301,6 @@ return {
 			end,
 			desc = "Man Pages",
 		},
-		-- LSP
 		{
 			"gd",
 			function()

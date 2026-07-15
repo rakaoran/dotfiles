@@ -1,12 +1,6 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.filetype.add({
-	extension = {
-		h = "c",
-	},
-})
-
 if vim.g.neovide then
 	vim.o.guifont = "JetBrainsMono Nerd Font:h18"
 	vim.opt.linespace = 0
@@ -23,27 +17,6 @@ if vim.g.neovide then
 	vim.g.neovide_padding_left = 0
 	vim.g.neovide_hide_mouse_when_typing = true
 end
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.wrap = true
-	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "c", "cpp", "objc", "objcpp", "cuda" },
-	callback = function()
-		vim.opt_local.tabstop = 8
-		vim.opt_local.softtabstop = 8
-		vim.opt_local.shiftwidth = 8
-		vim.opt_local.expandtab = false
-		vim.opt_local.smartindent = false
-		vim.opt_local.cindent = true
-		vim.opt_local.indentexpr = ""
-		vim.opt_local.cinoptions = ":0,=s,l1,t0,g0,(0"
-	end,
-})
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

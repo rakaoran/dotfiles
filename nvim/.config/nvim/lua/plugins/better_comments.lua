@@ -4,8 +4,4 @@ return {
 	opts = {
 		signs = false,
 	},
-
-	-- TEST: erlemrte
-	-- TODO: esmt
-	-- HACK:
 }

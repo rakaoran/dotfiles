@@ -4,7 +4,7 @@ AllowShortFunctionsOnASingleLine: None
 IndentWidth: 8
 ContinuationIndentWidth: 8
 TabWidth: 8
-UseTab: Always
+UseTab: Never
 IndentCaseLabels: false
 IndentCaseBlocks: false
 ColumnLimit: 120

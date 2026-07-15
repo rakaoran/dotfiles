@@ -115,7 +115,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-context",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		opts = {
-			max_lines = 8, -- if I have 8 scopes i probably need to rethink what i'm doing haha
+			max_lines = 8,
 			trim_scope = "outer",
 		},
 	},
@@ -142,49 +142,42 @@ return {
 				},
 			})
 
-			-- select: functions
 			vim.keymap.set({ "x", "o" }, "if", function()
 				select.select_textobject("@function.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "af", function()
 				select.select_textobject("@function.outer", "textobjects")
 			end)
-			-- cia = change inside argument, daa = delete around argument
 			vim.keymap.set({ "x", "o" }, "ia", function()
 				select.select_textobject("@parameter.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "aa", function()
 				select.select_textobject("@parameter.outer", "textobjects")
 			end)
-			-- cib = change inside block, dab = delete around block
 			vim.keymap.set({ "x", "o" }, "ib", function()
 				select.select_textobject("@block.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "ab", function()
 				select.select_textobject("@block.outer", "textobjects")
 			end)
-			-- cii = change inside if, dai = delete around if
 			vim.keymap.set({ "x", "o" }, "ii", function()
 				select.select_textobject("@conditional.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "ai", function()
 				select.select_textobject("@conditional.outer", "textobjects")
 			end)
-			-- cil = change inside loop, dal = delete around loop
 			vim.keymap.set({ "x", "o" }, "il", function()
 				select.select_textobject("@loop.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "al", function()
 				select.select_textobject("@loop.outer", "textobjects")
 			end)
-			-- cis = change inside struct/class, das = delete around struct/class
 			vim.keymap.set({ "x", "o" }, "is", function()
 				select.select_textobject("@class.inner", "textobjects")
 			end)
 			vim.keymap.set({ "x", "o" }, "as", function()
 				select.select_textobject("@class.outer", "textobjects")
 			end)
-			-- cir = change inside return, dar = delete around return
 			vim.keymap.set({ "x", "o" }, "ir", function()
 				select.select_textobject("@return.inner", "textobjects")
 			end)
@@ -192,7 +185,6 @@ return {
 				select.select_textobject("@return.outer", "textobjects")
 			end)
 
-			-- move: jump between functions/arguments/conditionals/loops
 			vim.keymap.set({ "n", "x", "o" }, "]f", function()
 				move.goto_next_start("@function.outer", "textobjects")
 			end)
@@ -217,7 +209,6 @@ return {
 			vim.keymap.set({ "n", "x", "o" }, "[l", function()
 				move.goto_previous_start("@loop.outer", "textobjects")
 			end)
-
 		end,
 	},
 }

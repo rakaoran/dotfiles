@@ -1,4 +1,4 @@
-# My Neovim Configs (gonna evolve with time)
+# Neovim Config
 
 `<Esc>`: clear search 'highlight'
 
@@ -10,7 +10,7 @@
 
 ## Navigation
 
-`<C-j>`: scroll down 50 line
+`<C-j>`: scroll down 50 lines
 
 `<C-k>`: scroll up 50 lines
 
@@ -25,12 +25,6 @@
 `]]`: next word reference (snacks.words)
 
 `[[`: previous word reference (snacks.words)
-
-```go
-type Meow struct {
-    x int
-}
-```
 
 ## Editing
 
@@ -132,7 +126,7 @@ type Meow struct {
 
 ## Bufferline
 
-`<leader>1-6`: go to buffer N
+`<leader>1-9`: go to buffer N
 
 `<S-h>`: previous buffer
 
@@ -228,15 +222,13 @@ type Meow struct {
 
 ## Surround
 
-`s{motion}{char}`: surround (e.g. `saiw"` → wrap word in quotes)
-
 `ss{char}`: surround entire line
 
 `s{char}` (visual): surround selection
 
-`ds{char}`: delete surround (e.g. `ds"` → remove quotes)
+`sd{char}`: delete surround
 
-`cs{old}{new}`: change surround (e.g. `cs"'` → quotes to single quotes)
+`sc{old}{new}`: change surround
 
 ## Flash
 
@@ -294,8 +286,4 @@ type Meow struct {
 
 ## Leader Namespaces
 
-`b` buffer, `c` code, `d` debug, `g` git, `m` markdown, `o` oil, `r` refactor, `s` search/snacks, `t` terminal, `x` diagnostics
-
-## Reserved Easy Keymaps (free for future use)
-
-`Q`, `S`, `U`, `M`, `<leader>e`, `<leader>n`, `<leader>p`, `<leader>v`, `<leader>z`
+`b` buffer, `d` debug, `g` git, `l` LeetCode, `m` markdown, `o` oil, `r` refactor, `s` search/snacks, `t` folds, `x` diagnostics

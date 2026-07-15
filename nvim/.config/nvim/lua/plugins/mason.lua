@@ -56,11 +56,11 @@ return {
 					"clangd",
 					"--enable-config",
 					"--background-index",
-					"--all-scopes-completion",
 					"--completion-style=detailed",
 					"--header-insertion=iwyu",
 					"--function-arg-placeholders=1",
 				},
+				filetypes = { "c" },
 			})
 			require("mason-lspconfig").setup(opts)
 		end,

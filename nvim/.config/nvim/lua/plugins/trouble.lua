@@ -4,15 +4,15 @@ return {
 	opts = {
 		win = { position = "right", size = 0.4 },
 		focus = true,
-		warn_no_results = false, -- show a warning when there are no results
-		open_no_results = true, -- open the trouble window when there are no results
+		warn_no_results = false,
+		open_no_results = true,
 		modes = {
 			diagnostics = {
 				focus = true,
 				win = { position = "bottom", size = 0.4 },
 			},
 		},
-	}, -- for default options, refer to the configuration section for custom setup.
+	},
 	cmd = "Trouble",
 	keys = {
 		{
