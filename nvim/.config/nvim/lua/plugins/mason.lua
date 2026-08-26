@@ -1,3 +1,7 @@
+vim.lsp.config("rust_analyzer", {
+	cmd = { vim.fn.expand("/home/rakaoran/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer") },
+})
+vim.lsp.enable("rust_analyzer", true)
 return {
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -78,7 +82,6 @@ return {
 				"cssls",
 				"jsonls",
 				"gopls",
-				"rust_analyzer",
 				"eslint",
 			},
 			automatic_enable = true,

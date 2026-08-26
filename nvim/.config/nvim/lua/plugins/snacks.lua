@@ -232,7 +232,7 @@ return {
 		{
 			"<leader>f",
 			function()
-				Snacks.picker.files()
+				Snacks.picker.files({ exclude = { "node_modules" } })
 			end,
 			desc = "Find Files",
 		},
