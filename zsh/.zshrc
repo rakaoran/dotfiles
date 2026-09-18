@@ -20,6 +20,7 @@ path=(
   $HOME/ctf/bin
   $HOME/.cargo/bin
   $HOME/go/bin
+  $HOME/development/flutter/bin
   $HOME/manbin/bin
   $HOME/.local/share/bob/nvim-bin
   $ANDROID_HOME/cmdline-tools/latest/bin
